@@ -37,9 +37,16 @@ def test_supply_eth(cETH, whale):
     print(f"Current exchange rate from cETH to ETH: {exchangeRateCurrent}")
 
     print("Redeeming cETH for ETH...")
-    tx = cETH.redeem(cTokenBalance, {"from": whale})
-    print(tx.events)
-    # assert cETH.balanceOf(accounts[1]) > 0
+    print(cETH.balanceOf(accounts[4]))
+    # doesn't fail for users with 0 cETH
+    tx = cETH.redeem(cTokenBalance, {"from": bob})
+    accrued_interest = tx.events["AccrueInterest"]["interestAccumulated"]
+    redeem_tokens = tx.events["Redeem"]["redeemTokens"]
+    redeem_amount = tx.events["Redeem"]["redeemAmount"]
+    print(f"Accrued interest: {accrued_interest}")
+    assert redeem_tokens == cTokenBalance
+    assert redeem_amount > amount_to_deposit
+
     
 
 
