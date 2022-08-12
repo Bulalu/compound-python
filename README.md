@@ -19,5 +19,5 @@ pip install eth-brownie
 add a WEB3_INFURA_PROJECT_ID variable in your .env file, checkout the .env.sample for ref
 
 run tests on mainnet fork by running 
-brownie test --network mainnet-fork
+brownie test --network mainnet-fork -s
 ```
