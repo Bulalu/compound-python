@@ -13,7 +13,7 @@ def test_supply_eth(cETH, whale):
 
     bob = accounts[0]
     amount_to_deposit = Web3.toWei(4, "ether")
-
+    
     assert cETH.name() == "Compound Ether"
     
     print("Depositing ETH to the Compound Protocol...")

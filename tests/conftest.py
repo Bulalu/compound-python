@@ -24,4 +24,4 @@ def dai():
     
 @pytest.fixture
 def whale(accounts):
-    yield accounts.at("0x6E685A45Db4d97BA160FA067cB81b40Dfed47245", force=True)
+    yield accounts.at("0x28C6c06298d514Db089934071355E5743bf21d60", force=True)
